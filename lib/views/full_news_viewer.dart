@@ -42,10 +42,12 @@ class _FullNewsViewerState extends State<FullNewsViewer> {
           return getListView();
         } else if (snapshot.hasError) {
           //If error occurred
+          print(snapshot.error);
           showToast('Проверьте интернет соединение');
 
           // Close news if there is no connectivity
-          Navigator.pop(context);
+          WidgetsBinding.instance
+              .addPostFrameCallback((_) => Navigator.pop(context));
         }
 
         //Default widget
@@ -145,9 +147,12 @@ class _FullNewsViewerState extends State<FullNewsViewer> {
           imagesUrl.add(gallery[i].attributes['href']);
       }
 
-      var title = titleAndImage[0].attributes['title'];
-      var image = titleAndImage[0].attributes['href'];
-
+      var title = '';
+      var image = '';
+      if (titleAndImage.length != 0) {
+        title = titleAndImage[0].attributes['title'];
+        image = titleAndImage[0].attributes['href'];
+      }
       //Building description
       String description = '';
       for (int i = 0; i < descr.length; i++) {
