@@ -1,8 +1,9 @@
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:html/parser.dart';
-import 'package:zoo_mobile/models/animals_category_data.dart';
-import 'package:zoo_mobile/models/manual_item.dart';
+import 'package:zoo_mobile/models/manual/animals_category_data.dart';
+import 'package:zoo_mobile/models/manual/manual_item.dart';
+import 'package:zoo_mobile/repository/animal_category.dart';
 import 'package:zoo_mobile/widgets/downloading_widgets.dart';
 import 'package:http/http.dart' as http;
 import 'animals_viewer.dart';
