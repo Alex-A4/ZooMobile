@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:zoo_mobile/content_providers/content_provider.dart';
-import 'package:zoo_mobile/models/manual/animals.dart';
-import 'package:zoo_mobile/models/manual/animals_category_data.dart';
-import 'package:zoo_mobile/widgets/downloading_widgets.dart';
+import 'package:zoo_mobile/src/content_providers/content_provider.dart';
+import 'package:zoo_mobile/src/models/manual/animals.dart';
+import 'package:zoo_mobile/src/models/manual/animals_category_data.dart';
+import 'package:zoo_mobile/src/widgets/downloading_widgets.dart';
 
 class AnimalsViewer extends StatefulWidget {
   final AnimalCategory category;

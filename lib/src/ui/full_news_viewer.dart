@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:zoo_mobile/content_providers/content_provider.dart';
-import 'package:zoo_mobile/models/news/full_news.dart';
-import 'package:zoo_mobile/widgets/clickable_image.dart';
-import 'package:zoo_mobile/widgets/downloading_widgets.dart';
+import 'package:zoo_mobile/src/content_providers/content_provider.dart';
+import 'package:zoo_mobile/src/models/news/full_news.dart';
+import 'package:zoo_mobile/src/widgets/clickable_image.dart';
+import 'package:zoo_mobile/src/widgets/downloading_widgets.dart';
 
 class FullNewsViewer extends StatelessWidget {
   final String newsUrl;

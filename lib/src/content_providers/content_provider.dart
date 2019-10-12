@@ -1,11 +1,11 @@
 import 'package:connectivity/connectivity.dart';
 import 'package:html/parser.dart';
-import 'package:zoo_mobile/models/manual/animals.dart';
-import 'package:zoo_mobile/models/manual/animals_category_data.dart';
 import 'package:http/http.dart' as http;
-import 'package:zoo_mobile/models/manual/manual_item.dart';
-import 'package:zoo_mobile/models/news/full_news.dart';
-import 'package:zoo_mobile/models/news/news.dart';
+import 'package:zoo_mobile/src/models/manual/animals.dart';
+import 'package:zoo_mobile/src/models/manual/animals_category_data.dart';
+import 'package:zoo_mobile/src/models/manual/manual_item.dart';
+import 'package:zoo_mobile/src/models/news/full_news.dart';
+import 'package:zoo_mobile/src/models/news/news.dart';
 
 /// Провайдер для загрузки контента
 abstract class ContentProvider<T> {

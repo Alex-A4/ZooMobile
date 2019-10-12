@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:zoo_mobile/bloc/app_bloc/app.dart';
-import 'package:zoo_mobile/widgets/downloading_widgets.dart';
-import '../models/news/news.dart';
+import 'package:zoo_mobile/src/bloc/app_bloc/app.dart';
+import 'package:zoo_mobile/src/models/news/news.dart';
+import 'package:zoo_mobile/src/widgets/downloading_widgets.dart';
 import 'full_news_viewer.dart';
 
 class NewsView extends StatelessWidget {

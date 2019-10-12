@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zoo_mobile/ui/image_viewer.dart';
+import 'package:zoo_mobile/src/ui/image_viewer.dart';
 
 
 ///Getting the list of clickable images which onTap opens

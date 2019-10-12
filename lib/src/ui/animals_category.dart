@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:zoo_mobile/bloc/app_bloc/app.dart';
-import 'package:zoo_mobile/models/manual/animals_category_data.dart';
-import 'package:zoo_mobile/models/manual/manual_item.dart';
-import 'package:zoo_mobile/widgets/downloading_widgets.dart';
+import 'package:zoo_mobile/src/bloc/app_bloc/app.dart';
+import 'package:zoo_mobile/src/models/manual/animals_category_data.dart';
+import 'package:zoo_mobile/src/models/manual/manual_item.dart';
+import 'package:zoo_mobile/src/widgets/downloading_widgets.dart';
 import 'animals_viewer.dart';
 
 ///Class to display list of animals by specified category

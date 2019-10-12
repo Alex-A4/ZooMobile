@@ -1,5 +1,6 @@
 import 'package:rxdart/rxdart.dart';
-import 'package:zoo_mobile/content_providers/content_provider.dart';
+
+import 'content_provider.dart';
 
 /// Базовый класс хранилища данных
 class Store<T> {

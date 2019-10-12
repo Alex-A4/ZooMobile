@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:zoo_mobile/ui/about_root.dart';
-import 'package:zoo_mobile/ui/manual_view.dart';
-import 'package:zoo_mobile/ui/news_root.dart';
+import 'package:zoo_mobile/src/bloc/app_bloc/app.dart';
+import 'package:zoo_mobile/src/ui/about_root.dart';
+import 'package:zoo_mobile/src/ui/manual_view.dart';
+import 'package:zoo_mobile/src/ui/news_root.dart';
 
-import 'bloc/app_bloc/app.dart';
 
 /// Class which is equivalent to Android's ViewPager
 /// Contains interaction pages

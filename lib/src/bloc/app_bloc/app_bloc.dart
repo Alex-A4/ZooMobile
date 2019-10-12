@@ -1,8 +1,8 @@
-import 'package:zoo_mobile/bloc/bloc.dart';
-import 'package:zoo_mobile/content_providers/store.dart';
-import 'package:zoo_mobile/models/manual/animals_category_data.dart';
-import 'package:zoo_mobile/models/manual/manual_item.dart';
-import 'package:zoo_mobile/models/news/news.dart';
+import 'package:zoo_mobile/src/bloc/bloc.dart';
+import 'package:zoo_mobile/src/content_providers/store.dart';
+import 'package:zoo_mobile/src/models/manual/animals_category_data.dart';
+import 'package:zoo_mobile/src/models/manual/manual_item.dart';
+import 'package:zoo_mobile/src/models/news/news.dart';
 
 import 'app.dart';
 
