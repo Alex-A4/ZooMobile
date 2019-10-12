@@ -1,3 +1,7 @@
 abstract class AppBlocState {}
 
-class AppEmptyState extends AppBlocState {}
+class NewsState extends AppBlocState {}
+
+class AboutState extends AppBlocState {}
+
+class ManualState extends AppBlocState {}
