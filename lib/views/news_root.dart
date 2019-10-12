@@ -1,9 +1,9 @@
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:html/parser.dart';
-import 'package:zoo_mobile/data_stores/news_store.dart';
+import 'package:zoo_mobile/models/news_store.dart';
 import 'package:zoo_mobile/widgets/downloading_widgets.dart';
-import '../data_stores/news.dart';
+import '../models/news.dart';
 import 'package:http/http.dart' as http;
 import 'full_news_viewer.dart';
 

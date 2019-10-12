@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:html/parser.dart';
-import 'package:zoo_mobile/data_stores/full_news.dart';
+import 'package:zoo_mobile/models/full_news.dart';
 import 'package:zoo_mobile/widgets/clickable_image.dart';
 import 'package:zoo_mobile/widgets/downloading_widgets.dart';
 import 'package:http/http.dart' as http;
