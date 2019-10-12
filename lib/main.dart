@@ -1,58 +1,101 @@
 import 'package:flutter/material.dart';
-import 'package:zoo_mobile/views/about_root.dart';
-import 'package:zoo_mobile/views/manual_view.dart';
-import 'package:zoo_mobile/views/news_root.dart';
+import 'package:provider/provider.dart';
+import 'package:zoo_mobile/ui/about_root.dart';
+import 'package:zoo_mobile/ui/manual_view.dart';
+import 'package:zoo_mobile/ui/news_root.dart';
+
+import 'bloc/app_bloc/app.dart';
 
 /// Class which is equivalent to Android's ViewPager
 /// Contains interaction pages
-class _TabPager extends StatefulWidget {
-  _TabPager({Key key}) : super(key: key);
+class TabPager extends StatefulWidget {
+  TabPager({Key key}) : super(key: key);
 
   @override
-  _TabPagerState createState() => _TabPagerState();
+  TabPagerState createState() => TabPagerState();
 }
 
-class _TabPagerState extends State<_TabPager> {
-  int _currentPage = 0;
+class TabPagerState extends State<TabPager> {
+  @override
+  Widget build(BuildContext context) {
+    final bloc = Provider.of<AppBloc>(context);
+    return Scaffold(
+      body: StreamBuilder<AppBlocState>(
+        stream: bloc.state,
+        builder: (_, snap) {
+          if (!snap.hasData) return Container();
+          if (snap.data is NewsState) return NewsView();
+          if (snap.data is AboutState) return AboutUsView();
+          if (snap.data is ManualState) return ManualCategoryWidget();
 
-  // The list of pages with content
-  final List<Widget> _pages = [NewsView(), AboutUsView(), ManualCategoryView()];
+          if (snap.hasError) print(snap.error);
+
+          return Container();
+        },
+      ),
+      bottomNavigationBar: CustomBottomBar(),
+    );
+  }
+}
+
+class CustomBottomBar extends StatelessWidget {
+  CustomBottomBar({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: _pages.elementAt(_currentPage),
-      bottomNavigationBar: BottomNavigationBar(
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-              icon: Icon(Icons.assignment), title: Text('Новости')),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.people), title: Text('О нас')),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.import_contacts), title: Text('Справочник')),
-        ],
-        fixedColor: Colors.green,
-        currentIndex: _currentPage,
-        onTap: _onPageChange,
-      ),
-    );
-  }
+    final bloc = Provider.of<AppBloc>(context);
 
-  // Select the page at [index] position
-  void _onPageChange(int index) {
-    setState(() {
-      _currentPage = index;
-    });
+    return StreamBuilder<AppBlocState>(
+      stream: bloc.state,
+      builder: (_, snap) {
+        int currentIndex = 0;
+        if (snap.data is AboutState) currentIndex = 1;
+        if (snap.data is ManualState) currentIndex = 2;
+
+        return BottomNavigationBar(
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.assignment),
+              title: Text('Новости'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.people),
+              title: Text('О нас'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.import_contacts),
+              title: Text('Справочник'),
+            ),
+          ],
+          fixedColor: Colors.green,
+          currentIndex: currentIndex,
+          onTap: (index) {
+            if (index == 0) bloc.dispatch(OpenNewsEvent());
+            if (index == 1) bloc.dispatch(OpenAboutEvent());
+            if (index == 2) bloc.dispatch(OpenManualEvent());
+          },
+        );
+      },
+    );
   }
 }
 
 void main() {
-  runApp(MaterialApp(
-    theme: ThemeData(
-      primaryColor: Colors.green[700],
-      accentColor: Colors.yellow[400],
+  final bloc = AppBloc();
+  bloc.dispatch(InitAppEvent());
+
+  runApp(
+    Provider<AppBloc>(
+      builder: (_) => bloc,
+      dispose: (_, b) => b.dispose(),
+      child: MaterialApp(
+        theme: ThemeData(
+          primaryColor: Colors.green[700],
+          accentColor: Colors.yellow[400],
+        ),
+        title: 'Ярославский зоопарк',
+        home: TabPager(),
+      ),
     ),
-    title: 'Ярославский зоопарк',
-    home: _TabPager(),
-  ));
+  );
 }
